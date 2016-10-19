@@ -7,8 +7,16 @@
 <ion-content padding>
 	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 	<ion-list>
+		<ion-list-header>
+			Gdańsk
+		</ion-list-header>
+		<ion-item>Pierwszy szpital</ion-item>
+		<ion-item>Drugi szpital</ion-item>
+		<ion-item>Trzeci szpital</ion-item>
+	</ion-list>
+	<!--<ion-list>
 		<ion-item *ngFor="let item of items">
 			{{ item }}
 		</ion-item>
-	</ion-list>
+	</ion-list>-->
 </ion-content>
