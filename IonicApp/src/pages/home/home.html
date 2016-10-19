@@ -1,17 +1,26 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-card>
+	<ion-card-content>
+	  <h2 class="card-title" color="accent">
+		Szpital Specjalistyczny św. Wojciecha
+	  </h2>
+	  <p>
+		aleja Jana Pawła II 50, 80-462 Gdańsk
+	  </p>
+	</ion-card-content>
+
+	<ion-item>HIT</ion-item>
+
+	<ion-item>
+	  <ion-icon name='calendar' item-left color="secondary"></ion-icon>
+	  Wolny termin
+	  <ion-badge item-right>06.2025</ion-badge>
+	</ion-item>
+
+	<ion-item>
+	  <ion-icon name='happy' item-left color="secondary"></ion-icon>
+	  Oczekujące osoby
+	  <ion-badge item-right>340</ion-badge>
+	</ion-item>
+  </ion-card>
 </ion-content>
