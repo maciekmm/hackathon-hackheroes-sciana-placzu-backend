@@ -12,7 +12,7 @@
 
 $text-color:        #000;
 $background-color:  #fff;
-
+$first-color: #3E5196;
 
 // Named Color Variables
 // --------------------------------------------------
@@ -23,7 +23,8 @@ $background-color:  #fff;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #3E5196,
+  //legacy
+  primary:    $first-color,
   secondary:  #EB927B,
   danger:     #f53d3d,
   light:      #EE537C,
@@ -31,10 +32,13 @@ $colors: (
   favorite:   #EE537C,
   accent:     #EE537C,
 
-  maintone:       #3E5196,
+  maintone:       $first-color,
+  primarytone:    $first-color, //the same
   secondarytone:  #EB927B,
   additionaltone: #363671,
-  accenttone:     #EE537C
+  accenttone:     #EE537C,
+  greytone:       #888,
+  greywhite:      #c8c8c8
 );
 
 
