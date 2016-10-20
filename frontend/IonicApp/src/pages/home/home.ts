@@ -9,7 +9,8 @@ import { NavController } from 'ionic-angular';
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
-
+    //TODO: httpService
+    //REST eg. Top: https://stock.xememah.com/s02/sciana-rest/top.json
   }
 
 }

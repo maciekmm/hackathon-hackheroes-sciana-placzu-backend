@@ -9,7 +9,8 @@ import { NavController } from 'ionic-angular';
 export class SearchPage {
 
   constructor(public navCtrl: NavController) {
-    
+    //TODO: httpService, ActionSheet for filtering
+    //REST eg. Providers: https://stock.xememah.com/s02/sciana-rest/provider.json
   }
 
 }
