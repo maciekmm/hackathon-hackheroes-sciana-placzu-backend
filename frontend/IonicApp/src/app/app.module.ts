@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HTTP_PROVIDERS } from 'angular2/http';
 
 import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SearchPage } from '../pages/search/search';
-
+import { DataService } from '../providers/data-service';
 
 @NgModule({
   declarations: [
@@ -28,6 +27,6 @@ import { SearchPage } from '../pages/search/search';
     TabsPage,
     SearchPage
   ],
-  providers: []
+  providers: [DataService]
 })
 export class AppModule {}

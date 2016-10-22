@@ -1,16 +1,17 @@
 <ion-content padding>
   
-  <ion-card>
-		<ion-card-content>
-			<h1 class="card-title">Szpital Specjalistyczny św. Wojciecha</h1>
-			<p class="greytone">aleja Jana Pawła II 50, 80-462 Gdańsk</p>
-		</ion-card-content>
-
+	<ion-card *ngFor="let item of topItems">
 		<ion-item text-center text-wrap color="primarytone">
-			<p color="white">ENDOPROTEZOPLASTYKA STAWU KOLANOWEGO</p>
+			<p color="white" text-capitalize>{{item.name | lowercase}}</p>
 		</ion-item>
-		<ion-item text-center>
-			<p color="greytone">PRZYPADEK STABILNY</p>
+		
+		<!--<ion-item text-center>
+			<p color="greytone">{{item.category == 'STABLE' ? 'Przypadek stabilny' : 'Przypadek pilny'}}</p>
+		</ion-item>-->
+
+		<ion-item text-wrap>
+			<h2 class="card-title" text-capitalize>{{item.cell.name | lowercase}}</h2>
+			<p color="mainttone">{{item.cell.city}}</p>
 		</ion-item>
 
 		<ion-item>
@@ -18,12 +19,12 @@
 				<ion-row text-center>
 					<ion-col width-50>
 						<ion-icon name="calendar" color="primarytone" style="font-size: 32px;"></ion-icon><br/>
-						<h1 color="primarytone">05.2016</h1>
+						<h1 color="primarytone">{{item.first_available_date | date:"dd.MM.yyyy"}}</h1>
 						<p color="greytone">Pierwszy wolny termin</p>
 					</ion-col>
 					<ion-col width-50>
 						<ion-icon name="happy" color="happytone" style="font-size: 32px;"></ion-icon><br/>
-						<h1 color="happytone">2204</h1>
+						<h1 color="happytone">{{item.waiting}}</h1>
 						<p color="greytone">Osoby w kolejce</p>
 					</ion-col>
 				</ion-row>

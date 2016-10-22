@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
-
 import { NavController } from 'ionic-angular';
+import { DataService } from '../../providers/data-service';
 
 @Component({
-  selector: 'page-about',
-  templateUrl: 'about.html'
+	selector: 'page-about',
+	templateUrl: 'about.html',
+	providers: [DataService]
 })
 export class AboutPage {
+	public stats: Array<any>;
 
-  constructor(public navCtrl: NavController) {
-    //TODO: httpService
-    //REST eg. Stats: https://stock.xememah.com/s02/sciana-rest/stats.json
-  }
-
+	constructor(public navCtrl: NavController, public dataService: DataService) {
+		dataService.fetchStats().then(data => {
+			this.stats = data;
+		});
+	}
 }

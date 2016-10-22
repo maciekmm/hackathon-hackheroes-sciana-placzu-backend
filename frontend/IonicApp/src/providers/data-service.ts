@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
 /*
@@ -9,23 +10,58 @@ import 'rxjs/add/operator/map';
 	for more info on providers and Angular 2 DI.
 */
 
-export class TopItem {
-
-}
-
 @Injectable()
 export class DataService {
-	private rootUrl = 'https://stock.xememah.com/s02/sciana-rest/';
-	items: any;
-
+	private rootUrl = 'https://sciana.placzu.pl/';
+	
 	constructor(public http: Http) {
-		console.log('init');
 	}
 
+	topItems: any;
 	fetchTop() {
-		this.http.get(this.rootUrl+"top.json").subscribe(data => {
-			this.items = data.json();
-			console.log(this.items);
+		if(this.topItems)
+			return Promise.resolve(this.topItems);
+		
+		return new Promise(resolve => {
+			this.http.get(this.rootUrl+"top?limit=10")
+			.map(res => res.json())
+			.subscribe(
+				data => resolve(data),
+				error => console.log(error),
+				() => console.log("fetchTop")
+			);
+		});
+	}
+
+	stats: any;
+	fetchStats() {
+		if(this.stats)
+			return Promise.resolve(this.stats);
+
+		return new Promise(resolve => {
+			this.http.get(this.rootUrl+"stats")
+			.map(res => res.json())
+			.subscribe(
+				data => resolve(data),
+				error => console.log(error),
+				() => console.log("fetchStats")
+			);
+		});
+	}
+
+	services: any;
+	fetchServices() {
+		if(this.services) 
+			return Promise.resolve(this.services)
+
+		return new Promise(resolve => {
+			this.http.get(this.rootUrl+"services")
+			.map(res => res.json())
+			.subscribe(
+				data => resolve(data),
+				error => console.log(error),
+				() => console.log("fetchServices")
+			);
 		});
 	}
 }

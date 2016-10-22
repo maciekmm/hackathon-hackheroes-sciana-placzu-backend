@@ -19,13 +19,6 @@
 			<ion-icon name='clock' item-left style="color: #55acee"></ion-icon>
 			Ostatnio wyszukiwane
 		</ion-list-header>
-		<ion-item>Czwarty szpital</ion-item>
-		<ion-item>Piąty szpital</ion-item>
-		<ion-item>Szósty szpital</ion-item>
+		<ion-item *ngFor="let service of services" text-capitalize>{{service.name | lowercase}}</ion-item>
 	</ion-list>
-	<!--<ion-list>
-		<ion-item *ngFor="let item of items">
-			{{ item }}
-		</ion-item>
-	</ion-list>-->
 </ion-content>

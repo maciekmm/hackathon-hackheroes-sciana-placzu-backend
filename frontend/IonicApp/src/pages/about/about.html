@@ -10,19 +10,19 @@
         <ion-item>
             <ion-icon name='medkit' item-left color="primarytone"></ion-icon>
             Placówki
-            <ion-badge item-right>NUM</ion-badge>
+            <ion-badge item-right>{{stats?.providers}}</ion-badge>
         </ion-item>
 
         <ion-item>
             <ion-icon name='pulse' item-left style="color: #d03e84"></ion-icon>
             Usługi
-            <ion-badge item-right>NUM</ion-badge>
+            <ion-badge item-right>{{stats?.services}}</ion-badge>
         </ion-item>
 
         <ion-item>
             <ion-icon name='filing' item-left style="color: #55acee"></ion-icon>
-            Rekordy
-            <ion-badge item-right>NUM</ion-badge>
+            Rekordy w bazie danych
+            <ion-badge item-right>{{stats?.records}}</ion-badge>
         </ion-item>
 
     </ion-card>
