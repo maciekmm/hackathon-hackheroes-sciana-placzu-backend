@@ -1,14 +1,17 @@
 package main
 
 import (
-	"database/sql"
 	"encoding/json"
 	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
+	"net/http"
+	"os"
+	"strconv"
 
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/jmoiron/sqlx"
 )
 
 type databaseCredentials struct {
@@ -18,7 +21,7 @@ type databaseCredentials struct {
 	Database string `json:"database"`
 }
 
-var connection *sql.DB
+var connection *sqlx.DB
 
 func configFromFile(file string) (*databaseCredentials, error) {
 	content, err := ioutil.ReadFile(file)
@@ -32,6 +35,7 @@ func configFromFile(file string) (*databaseCredentials, error) {
 func main() {
 	importPath := flag.String("import", "", "folder (with xlsx files) to import data from")
 	configPath := flag.String("config", "config.json", "path to database access configuration file")
+	port := flag.Int("port", 2001, "port to bind the backend to")
 	flag.Parse()
 
 	if *configPath == "" {
@@ -42,8 +46,8 @@ func main() {
 	if err != nil {
 		log.Fatalln("Could not read config file ", err)
 	}
-	fmt.Println(fmt.Sprintf("%s:%s@%s/%s?parseTime=true", config.Username, config.Password, config.Host, config.Database))
-	connection, err = sql.Open("mysql", fmt.Sprintf("%s:%s@%s/%s", config.Username, config.Password, config.Host, config.Database))
+
+	connection, err = sqlx.Open("mysql", fmt.Sprintf("%s:%s@%s/%s", config.Username, config.Password, config.Host, config.Database))
 	if err != nil {
 		log.Fatalln("Could create database connection ", err)
 	}
@@ -53,7 +57,22 @@ func main() {
 		log.Fatalln("Could not connect to database ", err)
 	}
 
+	//If there's stuff to import, do it
 	if *importPath != "" {
-		fmt.Println(startImport(*importPath))
+		err = startImport(*importPath)
+		if err != nil {
+			log.Fatalln("Importing data failed ", err)
+		}
 	}
+
+	if *port == 2001 && os.Getenv("PORT") != "" {
+		if *port, err = strconv.Atoi(os.Getenv("PORT")); err != nil {
+			log.Fatalln("Invalid port ", err)
+		}
+	}
+	http.HandleFunc("/top", topEndpoint)
+	http.HandleFunc("/services", servicesEndpoint)
+	http.HandleFunc("/provider", providerEndpoint)
+	http.HandleFunc("/cell", cellEndpoint)
+	fmt.Println(http.ListenAndServe(":"+strconv.Itoa(*port), nil))
 }

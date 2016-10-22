@@ -54,13 +54,13 @@ func startImport(folder string) error {
 		}
 		stmt, _ := connection.Prepare("INSERT INTO services(`voivodeship`,`name`,`category`,`city`,`address`,`phone`,`provider_name`,`cell`,`waiting`,`removed`,`average_waiting_time`,`first_available_date`,`date_prepared`,`date_updated`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)")
 		defer stmt.Close()
-		for _, row := range xlFile.Sheets[0].Rows[3:] { //omit header rows
+		for _, row := range xlFile.Sheets[0].Rows[2:] { //omit header rows
 			service := Service{
-				Name:         strings.TrimSpace(row.Cells[0].Value),
-				Voivodeship:  voivodeship,
-				ProviderName: strings.TrimSpace(row.Cells[2].Value),
-				Cell:         strings.TrimSpace(row.Cells[3].Value),
+				Name: strings.TrimSpace(row.Cells[0].Value),
 			}
+			service.ProviderName = strings.TrimSpace(row.Cells[2].Value)
+			service.Voivodeship = voivodeship
+			service.Cell.Cell = strings.TrimSpace(row.Cells[3].Value)
 
 			if strings.Contains(row.Cells[1].Value, "pilny") {
 				service.Category = Urgent
