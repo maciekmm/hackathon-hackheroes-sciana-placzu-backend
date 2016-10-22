@@ -11,14 +11,13 @@ import (
 
 const maxLimit int = 50
 
-//SELECT name, GROUP_CONCAT(DISTINCT category ORDER BY category SEPARATOR ';'), FLOOR(AVG(average_waiting_time)) FROM services WHERE date_updated>=2016-08-01 GROUP BY name
 func topEndpoint(rw http.ResponseWriter, req *http.Request) {
 	var err error
 	currentTime := time.Now()
+	//first day of a month
 	currentTime = currentTime.AddDate(0, 0, -currentTime.Day()+1)
 
 	limit := 5
-
 	if req.URL.Query().Get("limit") != "" {
 		limit, err = strconv.Atoi(req.URL.Query().Get("limit"))
 		if err != nil {
@@ -40,6 +39,7 @@ func topEndpoint(rw http.ResponseWriter, req *http.Request) {
 		log.Println(err)
 		return
 	}
+
 	rw.Header().Set("Content-Type", "application/json")
 	enc := json.NewEncoder(rw)
 	err = enc.Encode(services)
@@ -103,7 +103,7 @@ func searchEndpoint(rw http.ResponseWriter, req *http.Request) {
 		limit, err = strconv.Atoi(req.URL.Query().Get("limit"))
 		if err != nil {
 			rw.WriteHeader(400)
-			rw.Write([]byte(err.Error()))
+			rw.Write([]byte("Invalid number " + err.Error()))
 			return
 		}
 		if limit > maxLimit {
@@ -152,6 +152,7 @@ func serviceEndpoint(rw http.ResponseWriter, req *http.Request) {
 		rw.Write([]byte("id parameter cannot be empty"))
 		return
 	}
+
 	service := &Service{}
 	err = connection.Get(service, "SELECT * FROM services WHERE id=?", id)
 	if err != nil {

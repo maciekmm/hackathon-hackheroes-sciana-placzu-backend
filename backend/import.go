@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
 	"path"
 	"strconv"
 	"strings"
@@ -43,20 +44,25 @@ func startImport(folder string) error {
 	if err != nil {
 		return err
 	}
-	//var services []Service
+
+	//iterate through files to import
 	for _, info := range files {
 		fileName := info.Name()
+		//voivodeship is included in filename
 		voivodeship := voivodeships[strings.Split(fileName, "_")[0]]
+		//open excel file
 		xlFile, err := xlsx.OpenFile(path.Join(folder, fileName))
 		if err != nil {
-			fmt.Println(err)
+			log.Fatalln(err)
 			return err
 		}
 		stmt, _ := connection.Prepare("INSERT INTO services(`voivodeship`,`name`,`category`,`city`,`address`,`phone`,`provider_name`,`cell`,`waiting`,`removed`,`average_waiting_time`,`first_available_date`,`date_prepared`,`date_updated`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)")
 		defer stmt.Close()
 		for _, row := range xlFile.Sheets[0].Rows[2:] { //omit header rows
 			service := Service{
-				Name: strings.TrimSpace(row.Cells[0].Value),
+				Provider: &Provider{},
+				Cell:     &Cell{},
+				Name:     strings.TrimSpace(row.Cells[0].Value),
 			}
 			service.ProviderName = strings.TrimSpace(row.Cells[2].Value)
 			service.Voivodeship = voivodeship
@@ -125,11 +131,11 @@ func startImport(folder string) error {
 					service.DatePrepared = fmt.Sprintf("20%s-%s-%02d", date[2], date[0], day)
 				}
 			}
-			_, err = stmt.Exec(voivodeship, service.Name, string(service.Category), service.City, service.Address, service.Phone, service.ProviderName, service.Cell, service.Waiting, service.Removed, service.AverageWaitingTime, service.FirstAvailableDate, service.DatePrepared, service.DateUpdated)
+			_, err = stmt.Exec(voivodeship, service.Name, string(service.Category), service.City, service.Address, service.Phone, service.ProviderName, service.Cell.Cell, service.Waiting, service.Removed, service.AverageWaitingTime, service.FirstAvailableDate, service.DatePrepared, service.DateUpdated)
+
 			if err != nil {
 				return err
 			}
-			//fmt.Printf("%+v\n", service)
 		}
 	}
 	return nil
