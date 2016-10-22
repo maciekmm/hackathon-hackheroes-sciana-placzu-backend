@@ -43,7 +43,11 @@ func providerEndpoint(rw http.ResponseWriter, req *http.Request) {
 	}
 
 	enc := json.NewEncoder(rw)
-	enc.Encode(&providerOut{Provider: services[0].Provider, Cells: cells})
+	err = enc.Encode(&providerOut{Provider: services[0].Provider, Cells: cells})
+	if err != nil {
+		rw.WriteHeader(500)
+		log.Println(err)
+	}
 }
 
 type cellOut struct {
@@ -87,6 +91,14 @@ func cellEndpoint(rw http.ResponseWriter, req *http.Request) {
 		service.Provider = nil
 	}
 	out.Services = services
+
+	rw.Header().Set("Content-Type", "application/json")
 	enc := json.NewEncoder(rw)
-	enc.Encode(out)
+	err = enc.Encode(services)
+
+	if err != nil {
+		rw.WriteHeader(500)
+		log.Println(err)
+		return
+	}
 }
