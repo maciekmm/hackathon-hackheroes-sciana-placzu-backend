@@ -8,13 +8,16 @@
 	<ion-searchbar placeholder="Szukaj" (ionInput)="getItems($event)"></ion-searchbar>
 	<ion-list>
 		<ion-list-header>
-			Ostatnio wyszukiwane
+			<ion-icon name='star' item-left style="color: #e2e212"></ion-icon>
+			Ulubione
 		</ion-list-header>
+		
 		<ion-item>Pierwszy szpital</ion-item>
 		<ion-item>Drugi szpital</ion-item>
 		<ion-item>Trzeci szpital</ion-item>
 		<ion-list-header>
-			Ulubione
+			<ion-icon name='clock' item-left style="color: #55acee"></ion-icon>
+			Ostatnio wyszukiwane
 		</ion-list-header>
 		<ion-item>Czwarty szpital</ion-item>
 		<ion-item>Piąty szpital</ion-item>
