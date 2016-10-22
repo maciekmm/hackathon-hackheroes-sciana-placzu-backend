@@ -70,9 +70,16 @@ func main() {
 			log.Fatalln("Invalid port ", err)
 		}
 	}
+
+	//cache services
+	initServices()
+
 	http.HandleFunc("/top", topEndpoint)
 	http.HandleFunc("/services", servicesEndpoint)
 	http.HandleFunc("/provider", providerEndpoint)
 	http.HandleFunc("/cell", cellEndpoint)
+	http.HandleFunc("/search", searchEndpoint)
+	http.HandleFunc("/service", serviceEndpoint)
+
 	fmt.Println(http.ListenAndServe(":"+strconv.Itoa(*port), nil))
 }

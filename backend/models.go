@@ -24,7 +24,7 @@ func (c Category) Value() (driver.Value, error) {
 }
 
 type Cell struct {
-	Cell    string `db:"cell" json:"cell,omitempty"`
+	Cell    string `db:"cell" json:"name,omitempty"`
 	City    string `db:"city" json:"city,omitempty"`
 	Address string `db:"address" json:"address,omitempty"`
 	Phone   string `db:"phone" json:"phone,omitempty"`
