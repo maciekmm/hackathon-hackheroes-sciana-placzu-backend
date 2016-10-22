@@ -18,12 +18,8 @@ constructor(public navCtrl: NavController, public dataService: DataService) {
 		});
 	}
 
-	initializeItems() {
-		this.services = this.copy;
-	}
-
 	getItems(ev: any) {
-		this.initializeItems();
+		this.services = this.copy;
 
 		let val = ev.target.value;
 		if (val && val.trim() != '') {

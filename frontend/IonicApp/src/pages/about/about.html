@@ -8,15 +8,15 @@
         </ion-card-content>
 
         <ion-item>
-            <ion-icon name='medkit' item-left color="primarytone"></ion-icon>
-            Placówki
-            <ion-badge item-right>{{stats?.providers}}</ion-badge>
-        </ion-item>
-
-        <ion-item>
             <ion-icon name='pulse' item-left style="color: #d03e84"></ion-icon>
             Usługi
             <ion-badge item-right>{{stats?.services}}</ion-badge>
+        </ion-item>
+
+        <ion-item>
+            <ion-icon name='medkit' item-left color="primarytone"></ion-icon>
+            Placówki
+            <ion-badge item-right>{{stats?.providers}}</ion-badge>
         </ion-item>
 
         <ion-item>
@@ -30,15 +30,10 @@
   <ion-list>
 
     <ion-list-header>Kontakt z autorami</ion-list-header>
-    <ion-item>
+    <ion-item *ngFor="let author of authors">
       <ion-icon name="mail" item-left></ion-icon>
-      marek@kochanow.ski<br/>
-      <p class="greytone">Front-end, aplikacja mobilna</p>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="mail" item-left></ion-icon>
-      business@maciekmm.net<br/>
-      <p class="greytone">Back-end, API, parsowanie danych</p>
+      {{author?.mail}}<br/>
+      <p class="greytone">{{author?.desc}}</p>
     </ion-item>
   </ion-list>
 
