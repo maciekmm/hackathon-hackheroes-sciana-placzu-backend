@@ -15,15 +15,8 @@ export class ServicePage {
 	constructor(public navCtrl: NavController, public params: NavParams, public dataService: DataService) {
 		this.service = params.get('service');
 
-		console.log(this.service.name);
-		
 		dataService.fetchSearch(this.service.name).then(data => {
 			this.providers = data;
 		});
 	}
-
-	ionViewDidLoad() {
-		console.log('Hello Service Page');
-	}
-
 }
