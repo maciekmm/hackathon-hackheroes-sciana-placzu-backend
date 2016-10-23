@@ -1,6 +1,6 @@
 <ion-content padding>
   
-	<ion-card *ngFor="let item of topItems">
+	<ion-card class="animated fadeInLeft list-item" *ngFor="let item of topItems">
 		<ion-item text-center text-wrap color="primarytone">
 			<p color="white" text-capitalize>{{item.name | lowercase}}</p>
 		</ion-item>
