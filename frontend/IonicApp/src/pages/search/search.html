@@ -9,14 +9,14 @@
 	<ion-searchbar [(ngModel)]="searchValue" placeholder="Szukaj" (ionInput)="getItems($event)"></ion-searchbar>
 
 	<ion-list class="animated fadeIn" *ngIf="searchValue.length == 0">
-		<ion-list-header color="#e2e212">
+		<!--<ion-list-header color="#e2e212">
 			<ion-icon name='star' item-right style="color: #e2e212"></ion-icon>
 			Ulubione
 		</ion-list-header>
 		
 		<ion-item>Pierwsza usługa</ion-item>
-		<a ion-item>Druga usługa</a>
-		<ion-list-header color="#55acee">
+		<a ion-item>Druga usługa</a>-->
+		<ion-list-header>
 			<ion-icon name='clock' item-right style="color: #55acee"></ion-icon>
 			Ostatnio wyszukiwane
 		</ion-list-header>
@@ -28,7 +28,7 @@
 			<ion-icon name='pulse' item-right style="color: #d03e84"></ion-icon>
 			Wyszukiwanie
 		</ion-list-header>
-		<a ion-item *ngFor="let service of services" (click)="goToService(service)" text-capitalize>{{service.name | lowercase}}</a>
+		<a ion-item *ngFor="let service of services" (click)="goToService(service)" text-capitalize text-wrap>{{service.name | lowercase}}</a>
 	</ion-list>
 
 </ion-content>
