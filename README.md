@@ -16,7 +16,7 @@ This is an entry for [Hack Heroes Hacathon](http://apki.org/news/hack-heroes-wez
 - Go
 - SQL, Mariadb
 - Javascript, Typescript
-- Ionic 2, Angular
+- Ionic 2, Angular 2
 
 ## Source of data
 
