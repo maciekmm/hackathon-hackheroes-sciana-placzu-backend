@@ -13,7 +13,7 @@ export class HomePage {
 	constructor(public navCtrl: NavController, public dataService: DataService) {
 		dataService.fetchTop().then(data => {
 			this.topItems = data;
-			//console.log(this.topItems);
+			console.log(this.topItems);
 		});
 	}
 

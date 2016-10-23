@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
@@ -61,6 +61,29 @@ export class DataService {
 				data => resolve(data),
 				error => console.log(error),
 				() => console.log("fetchServices")
+			);
+		});
+	}
+
+	searchItems: any;
+	fetchSearch(value) {
+		if(this.searchItems) 
+			return Promise.resolve(this.searchItems)
+
+		return new Promise(resolve => {
+			let params: URLSearchParams = new URLSearchParams();
+			params.set('name', value);
+
+			console.log(this.rootUrl+"search", { search: params });
+			console.log(this.rootUrl+"search?name="+value);
+
+			this.http.get(this.rootUrl+"search", { search: params })
+			//this.http.get(this.rootUrl+"top")
+			.map(res => res.json())
+			.subscribe(
+				data => resolve(data),
+				error => console.log(error),
+				() => console.log("fetchSearch")
 			);
 		});
 	}
