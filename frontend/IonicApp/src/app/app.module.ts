@@ -6,6 +6,7 @@ import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SearchPage } from '../pages/search/search';
+import { ServicePage } from '../pages/service/service';
 import { DataService } from '../providers/data-service';
 
 @NgModule({
@@ -14,7 +15,8 @@ import { DataService } from '../providers/data-service';
     AboutPage,
     HomePage,
     TabsPage,
-    SearchPage
+    SearchPage,
+    ServicePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -25,7 +27,8 @@ import { DataService } from '../providers/data-service';
     AboutPage,
     HomePage,
     TabsPage,
-    SearchPage
+    SearchPage,
+    ServicePage
   ],
   providers: [DataService]
 })
