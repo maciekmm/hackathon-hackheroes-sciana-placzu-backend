@@ -32,8 +32,8 @@
     <ion-list-header>Kontakt z autorami</ion-list-header>
     <a href="mailto:{{author?.mail}}" ion-item *ngFor="let author of authors">
       <ion-icon name="mail" item-left></ion-icon>
-      {{author.mail}}<br/>
-      <p class="greytone">{{author.desc}}</p>
+      {{author?.mail}}<br/>
+      <p class="greytone">{{author?.desc}}</p>
     </a>
   </ion-list>
 
