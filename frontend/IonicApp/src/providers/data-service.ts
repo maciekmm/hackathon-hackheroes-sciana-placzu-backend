@@ -74,11 +74,7 @@ export class DataService {
 			let params: URLSearchParams = new URLSearchParams();
 			params.set('name', value);
 
-			console.log(this.rootUrl+"search", { search: params });
-			console.log(this.rootUrl+"search?name="+value);
-
 			this.http.get(this.rootUrl+"search", { search: params })
-			//this.http.get(this.rootUrl+"top")
 			.map(res => res.json())
 			.subscribe(
 				data => resolve(data),

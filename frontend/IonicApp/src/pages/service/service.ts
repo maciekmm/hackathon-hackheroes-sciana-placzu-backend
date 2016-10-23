@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DataService } from '../../providers/data-service';
+import { PhonePipe } from 'phone-pipe';
 
 @Component({
 	selector: 'page-service',
@@ -19,9 +20,6 @@ export class ServicePage {
 		dataService.fetchSearch(this.service.name).then(data => {
 			this.providers = data;
 		});
-		
-		console.log(this.service);
-		console.log(this.providers);
 	}
 
 	ionViewDidLoad() {

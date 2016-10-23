@@ -1,18 +1,55 @@
 <!--
-  Generated template for the Service page.
+	Generated template for the Service page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
+	See http://ionicframework.com/docs/v2/components/#navigation for more info on
+	Ionic pages and navigation.
 -->
 <ion-header>
 
-  <ion-navbar color="primarytone">
-    <ion-title text-capitalize>{{service.name | lowercase}}</ion-title>
-  </ion-navbar>
+	<ion-navbar color="primarytone">
+		<ion-title text-capitalize>{{service.name | lowercase}}</ion-title>
+	</ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-  Tresc usługi
+
+	<ion-card class="animated fadeIn list-item" *ngFor="let provider of providers">
+		
+		<ion-item *ngIf="provider.category == 'STABLE'" color="maintone">
+			<h2 text-center color="white">PRZYPADEK STABILNY</h2>
+		</ion-item>
+		<ion-item *ngIf="provider.category == 'URGENT'" color="secondarytone">
+			<h2 text-center>PRZYPADEK PILNY</h2>
+		</ion-item>
+
+		<ion-item>
+			<h2 text-capitalize>{{provider.cell.name | lowercase}}</h2>
+			<p>{{provider.provider.voivodeship}}</p>
+		</ion-item>
+		<ion-item text-wrap>
+			<p text-capitalize>{{provider.provider.name | lowercase}}<br/>{{provider.cell.address | lowercase}}, {{provider.cell.city | lowercase}}<p>
+			<p color="accenttone"><strong>tel.</strong> {{provider.cell.phone}}</p>
+		</ion-item>
+		<ion-grid>
+			<ion-row>
+				<ion-col width-50>Pierwszy wolny termin</ion-col>
+				<ion-col width-50 text-right color="primarytone"><strong>{{provider.first_available_date | date:"dd.MM.yyyy"}}</strong></ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col width-50>Osoby w kolejce</ion-col>
+				<ion-col width-50 text-right color="primarytone">{{provider.waiting}}</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col width-50>Osoby wykreślone z listy</ion-col>
+				<ion-col width-50 text-right color="primarytone">{{provider.removed}}</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col width-50>Średni czas oczekiwania</ion-col>
+				<ion-col width-50 text-right color="primarytone">{{provider.average_waiting_time}} dni</ion-col>
+			</ion-row>
+		</ion-grid>
+
+	</ion-card>
+
 </ion-content>
