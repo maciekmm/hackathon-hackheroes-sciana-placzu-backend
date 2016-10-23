@@ -14,6 +14,10 @@
 
 <ion-content padding>
 
+	<div text-center *ngIf="providers == 0">
+		<ion-spinner></ion-spinner>
+	</div>
+
 	<ion-card class="animated fadeIn list-item" *ngFor="let provider of providers">
 		
 		<ion-item *ngIf="provider.category == 'STABLE'" color="maintone">

@@ -1,5 +1,9 @@
 <ion-content padding>
   
+	<div text-center *ngIf="topItems == 0">
+		<ion-spinner></ion-spinner>
+	</div>
+
 	<ion-card class="animated fadeIn list-item" *ngFor="let item of topItems">
 		<ion-item text-center text-wrap color="primarytone">
 			<p color="white" text-capitalize>{{item.name | lowercase}}</p>
@@ -13,7 +17,7 @@
 			<h2 class="card-title" text-capitalize>{{item.cell.name | lowercase}}</h2>
 			<p color="mainttone">{{item.cell.city}}</p>
 		</ion-item>
-
+		
 		<ion-item>
 			<ion-grid>
 				<ion-row text-center>

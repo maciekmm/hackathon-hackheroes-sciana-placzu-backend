@@ -30,11 +30,11 @@
   <ion-list class="animated fadeIn">
 
     <ion-list-header>Kontakt z autorami</ion-list-header>
-    <ion-item *ngFor="let author of authors">
+    <a href="mailto:{{author?.mail}}" ion-item *ngFor="let author of authors">
       <ion-icon name="mail" item-left></ion-icon>
       {{author?.mail}}<br/>
       <p class="greytone">{{author?.desc}}</p>
-    </ion-item>
+    </a>
   </ion-list>
 
 </ion-content>
