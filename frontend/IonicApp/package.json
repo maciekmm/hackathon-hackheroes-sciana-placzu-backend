@@ -1,5 +1,5 @@
 {
-  "name": "ionic-hello-world",
+  "name": "sciana-placzu",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "private": true,
@@ -31,9 +31,9 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "^0.0.36",
-    "typescript": "^2.0.3"
+    "typescript": "^2.0.0"
   },
-  "description": "scianaPlaczu: An Ionic project",
+  "description": "Ściana płaczu",
   "cordovaPlugins": [
     "cordova-plugin-device",
     "cordova-plugin-console",

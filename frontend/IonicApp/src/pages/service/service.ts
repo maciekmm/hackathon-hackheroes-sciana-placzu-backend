@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DataService } from '../../providers/data-service';
-import { PhonePipe } from 'phone-pipe';
 
 @Component({
 	selector: 'page-service',

@@ -10,19 +10,19 @@
         <ion-item>
             <ion-icon name='pulse' item-left style="color: #d03e84"></ion-icon>
             Usługi
-            <ion-badge item-right>{{stats?.services}}</ion-badge>
+            <ion-badge item-right *ngIf="stats">{{stats.services}}</ion-badge>
         </ion-item>
 
         <ion-item>
             <ion-icon name='medkit' item-left color="primarytone"></ion-icon>
             Placówki
-            <ion-badge item-right>{{stats?.providers}}</ion-badge>
+            <ion-badge item-right *ngIf="stats">{{stats.providers}}</ion-badge>
         </ion-item>
 
         <ion-item>
             <ion-icon name='filing' item-left style="color: #55acee"></ion-icon>
             Rekordy w bazie danych
-            <ion-badge item-right>{{stats?.records}}</ion-badge>
+            <ion-badge item-right *ngIf="stats">{{stats.records}}</ion-badge>
         </ion-item>
 
     </ion-card>
@@ -32,8 +32,8 @@
     <ion-list-header>Kontakt z autorami</ion-list-header>
     <a href="mailto:{{author?.mail}}" ion-item *ngFor="let author of authors">
       <ion-icon name="mail" item-left></ion-icon>
-      {{author?.mail}}<br/>
-      <p class="greytone">{{author?.desc}}</p>
+      {{author.mail}}<br/>
+      <p class="greytone">{{author.desc}}</p>
     </a>
   </ion-list>
 
