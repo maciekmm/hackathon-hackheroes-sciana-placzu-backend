@@ -9,7 +9,7 @@ body {
 	font-weight: 100;
 }
 
-a, a:link, a:visited, a:hover, a:active {
+a, a:link, a:visited, a:hover, a:active, .authorlink {
 	text-decoration: none;
 	color: #fff;
 	font-size: 1.3em;
