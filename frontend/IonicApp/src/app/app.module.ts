@@ -8,6 +8,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { SearchPage } from '../pages/search/search';
 import { ServicePage } from '../pages/service/service';
 import { DataService } from '../providers/data-service';
+import { DatePipe } from '../providers/date-pipe';
 
 @NgModule({
   declarations: [
@@ -16,8 +17,8 @@ import { DataService } from '../providers/data-service';
     HomePage,
     TabsPage,
     SearchPage,
-    ServicePage //,
-                //PhonePipe
+    ServicePage,
+    DatePipe
   ],
   imports: [
     IonicModule.forRoot(MyApp)

@@ -61,7 +61,7 @@
 		<ion-grid>
 			<ion-row>
 				<ion-col width-50>Pierwszy wolny termin</ion-col>
-				<ion-col width-50 text-right color="primarytone"><strong>{{provider.first_available_date}}</strong></ion-col>
+				<ion-col width-50 text-right color="primarytone"><strong>{{provider.first_available_date | formatDate }}</strong></ion-col>
 			</ion-row>
 			<ion-row>
 				<ion-col width-50>Osoby w kolejce</ion-col>
