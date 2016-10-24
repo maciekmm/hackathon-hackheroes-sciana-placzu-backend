@@ -55,8 +55,13 @@
 			<p>{{provider.provider.voivodeship}}</p>
 		</ion-item>
 		<ion-item text-wrap>
-			<p text-capitalize>{{provider.provider.name | lowercase}}<br/>{{provider.cell.address | lowercase}}, {{provider.cell.city | lowercase}}<p>
-			<p color="accenttone"><strong>tel.</strong> {{provider.cell.phone}}</p>
+			<p text-capitalize>{{provider.provider.name | lowercase}}<br/>{{provider.cell.address | lowercase}}, {{provider.cell.city | lowercase}}</p>
+
+			<ul class="phone-numbers" *ngIf="provider.cell?.phone">
+				<li *ngFor="let number of provider.cell.phone.split(';')" color="accenttone">
+					<ion-icon name="call" text-left></ion-icon> 
+					<a color="accenttone" href="tel:+48{{number}}">{{number | formatPhone}}</a></li>
+			</ul>
 		</ion-item>
 		<ion-grid>
 			<ion-row>

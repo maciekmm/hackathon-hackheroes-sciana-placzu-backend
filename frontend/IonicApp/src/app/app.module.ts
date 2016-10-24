@@ -9,6 +9,7 @@ import { SearchPage } from '../pages/search/search';
 import { ServicePage } from '../pages/service/service';
 import { DataService } from '../providers/data-service';
 import { DatePipe } from '../providers/date-pipe';
+import { PhonePipe } from '../providers/phone-pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DatePipe } from '../providers/date-pipe';
     TabsPage,
     SearchPage,
     ServicePage,
-    DatePipe
+    DatePipe,
+    PhonePipe
   ],
   imports: [
     IonicModule.forRoot(MyApp)
