@@ -1,6 +1,10 @@
 package main
 
-import "database/sql/driver"
+import (
+	"database/sql/driver"
+	"encoding/json"
+	"strings"
+)
 
 type Category string
 
@@ -27,7 +31,21 @@ type Cell struct {
 	Cell    string `db:"cell" json:"name,omitempty"`
 	City    string `db:"city" json:"city,omitempty"`
 	Address string `db:"address" json:"address,omitempty"`
-	Phone   string `db:"phone" json:"phone,omitempty"`
+	Phone   string `db:"phone" json:"-"`
+}
+
+func (c *Cell) MarshalJSON() ([]byte, error) {
+	type Alias Cell
+	aux := &struct {
+		Phones []string `json:"phones"`
+		*Alias
+	}{
+		Alias: (*Alias)(c),
+	}
+	if c.Phone != "" {
+		aux.Phones = strings.Split(c.Phone, ";")
+	}
+	return json.Marshal(aux)
 }
 
 type Provider struct {
