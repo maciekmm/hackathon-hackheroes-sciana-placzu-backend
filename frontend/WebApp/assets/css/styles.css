@@ -1,5 +1,5 @@
 html, body {
-	font-family: 'Catamaran', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	width: 100%;
 	height: 100%;
 }
@@ -51,7 +51,7 @@ a, a:link, a:visited, a:hover, a:active {
     text-align: center;
     vertical-align: middle;
 	color: #fff;
-	font-family: 'Dosis', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 .text-vertical-center h1 {
     margin: 0;
@@ -65,7 +65,7 @@ a, a:link, a:visited, a:hover, a:active {
 }
 
 .theName, .theName:visited, .theName:link {
-	font-family: 'Courgette', cursive;
+	font-family: 'Poppins', sans-serif;
 	color: #fff;
 }
 
@@ -76,7 +76,7 @@ a, a:link, a:visited, a:hover, a:active {
 
 .header-button, .header-button:hover {
 	text-decoration: none;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	font-weight: 700;
 	text-transform: uppercase;
 	background-color: #327979;
@@ -110,14 +110,14 @@ a, a:link, a:visited, a:hover, a:active {
 .topNavbarLink {
 	margin-left: 3em;
 	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	font-weight: 700;
 	letter-spacing: 0.1em;
 	color: #222;
 }
 
 .separator {
-	background-color: #327979;
+	background-color: #EE537C;
 	height: 3px;
 	width: 6em;
 	margin: 0 auto;
@@ -138,9 +138,8 @@ a, a:link, a:visited, a:hover, a:active {
 
 .sectionHeader {
 	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	font-weight: 700;
-	letter-spacing: 0.2em;
 }
 
 .sectionHeaderWhite {
@@ -171,11 +170,12 @@ a, a:link, a:visited, a:hover, a:active {
 }
 
 .sectionBody {
-	font-family: 'Catamaran', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	padding-top: 2em;
 	color: #666;
-	font-size: 1.8em;
+	font-size: 1.2em;
 	letter-spacing: 0.1em;
+	
 }
 .sectionBodyWhite {
 	color: #f0f0f0;
