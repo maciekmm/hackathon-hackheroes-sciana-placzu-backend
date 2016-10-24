@@ -1,4 +1,4 @@
-![hack-heroes hacathon](./assets/hackheroes-logo.png)
+![hack-heroes hacathon](https://raw.githubusercontent.com/maciekmm/hackheroes-entry/master/assets/hackheroes-logo.png)
 
 # Ściana Płaczu [sciana.placzu.pl](https://sciana.placzu.pl)
 
