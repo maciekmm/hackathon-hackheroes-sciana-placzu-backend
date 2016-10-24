@@ -1,7 +1,7 @@
 {
   "name": "sciana-placzu",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Sciana.Placzu.pl",
+  "homepage": "https://sciana.placzu.pl",
   "private": true,
   "scripts": {
     "build": "ionic-app-scripts build",
@@ -33,14 +33,18 @@
     "@ionic/app-scripts": "^0.0.36",
     "typescript": "^2.0.0"
   },
-  "description": "Ściana płaczu",
+  "description": "Ściana Płaczu",
   "cordovaPlugins": [
     "cordova-plugin-device",
     "cordova-plugin-console",
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
-    "ionic-plugin-keyboard"
+    "ionic-plugin-keyboard",
+    "cordova-plugin-crosswalk-webview"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    "android",
+    "windows"
+  ]
 }

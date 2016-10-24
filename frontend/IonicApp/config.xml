@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.scianaplaczu392965" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-	<name>scianaPlaczu</name>
-	<description>An awesome Ionic/Cordova app.</description>
-	<author email="marek@kochanow.ski" href="https://kochanow.ski">Marek Kochanowski</author>
+	<name>Ściana Płaczu</name>
+	<description>Aplikacja mobila Ściany Płaczu</description>
+	<author email="marek@kochanow.ski" href="https://sciana.placzu.pl">Ściana Płaczu</author>
 	<content src="index.html"/>
 	<access origin="*"/>
 	<allow-intent href="http://*/*"/>
