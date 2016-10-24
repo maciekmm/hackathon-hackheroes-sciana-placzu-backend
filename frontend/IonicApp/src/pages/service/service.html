@@ -20,7 +20,7 @@
 
 	<ion-item class="even-padding" *ngIf="providers">
 		<ion-label>Województwo</ion-label>
-		<ion-select [(ngModel)]="voivodeship" (ionChange)="updateFilter()">
+		<ion-select [(ngModel)]="voivodeship" (ionChange)="updateFilter()" cancelText="Anuluj">
 			<ion-option value="" selected="true">Wszystkie</ion-option>
 			<ion-option value="DOLNOŚLĄSKIE" selected="true">Dolnośląskie</ion-option>
 			<ion-option value="KUJAWSKO-POMORSKIE">Kujawsko-Pomorskie</ion-option>
@@ -60,7 +60,7 @@
 		</ion-item>
 		<ion-grid>
 			<ion-row>
-				<ion-col width-50>Pierwszy wolny termin</ion-col>
+				<ion-col width-50>Wolny termin</ion-col>
 				<ion-col width-50 text-right color="primarytone"><strong>{{provider.first_available_date | formatDate }}</strong></ion-col>
 			</ion-row>
 			<ion-row>
