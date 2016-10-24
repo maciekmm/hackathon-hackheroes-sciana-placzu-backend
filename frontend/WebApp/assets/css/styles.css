@@ -11,6 +11,8 @@ body {
 
 a, a:link, a:visited, a:hover, a:active {
 	text-decoration: none;
+	color: #fff;
+	font-size: 1.3em;
 }
 
 .affix {
