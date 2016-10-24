@@ -15,29 +15,9 @@ export class AboutPage {
 		dataService.fetchStats().then(data => {
 			this.stats = data;
 		});
-		this.randomizeAuthors();
-	}
-
-	ionViewWillEnter() {
-		this.randomizeAuthors();
-	}
-
-	shuffle(array) {
-		var i = 0, j = 0, temp = null;
-
-		for (i = array.length - 1; i > 0; i -= 1) {
-			j = Math.floor(Math.random() * (i + 1));
-			temp = array[i];
-			array[i] = array[j];
-			array[j] = temp;
-		}
-	}
-
-	randomizeAuthors() {
 		this.authors = [
 			{mail: "marek@kochanow.ski", desc: "Front-end, aplikacja mobilna"},
-			{mail: "business@maciekmm.net", desc: "Back-end, API, parsowanie danych"}
+			{mail: "hackheroes@maciekmm.net", desc: "Back-end, API, parsowanie danych"}
 		]
-		this.shuffle(this.authors);
 	}
 }
