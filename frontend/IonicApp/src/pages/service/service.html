@@ -18,6 +18,29 @@
 		<ion-spinner></ion-spinner>
 	</div>
 
+	<ion-item class="even-padding" *ngIf="providers">
+		<ion-label>Województwo</ion-label>
+		<ion-select [(ngModel)]="voivodeship" (ionChange)="updateFilter()">
+			<ion-option value="" selected="true">Wszystkie</ion-option>
+			<ion-option value="DOLNOŚLĄSKIE" selected="true">Dolnośląskie</ion-option>
+			<ion-option value="KUJAWSKO-POMORSKIE">Kujawsko-Pomorskie</ion-option>
+			<ion-option value="LUBELSKIE">Lubelskie</ion-option>
+			<ion-option value="LUBUSKIE">Lubuskie</ion-option>
+			<ion-option value="ŁÓDZKIE">Łódzkie</ion-option>
+			<ion-option value="MAŁOPOLSKIE">Małopolskie</ion-option>
+			<ion-option value="MAZOWIECKIE">Mazowieckie</ion-option>
+			<ion-option value="OPOLSKIE">Opolskie</ion-option>
+			<ion-option value="PODKARPACKIE">Podkarpackie</ion-option>
+			<ion-option value="PODLASKIE">Podlaskie</ion-option>
+			<ion-option value="POMORSKIE">Pomorskie</ion-option>
+			<ion-option value="ŚLĄSKIE">Śląskie</ion-option>
+			<ion-option value="ŚWIĘTOKRZYSKIE">Świętokrzyskie</ion-option>
+			<ion-option value="WARMIŃSKO-MAZURSKIE">Warmińsko-Mazurskie</ion-option>
+			<ion-option value="WIELKOPOLSKIE">Wielkopolskie</ion-option>
+			<ion-option value="ZACHODNIOPOMORSKIE">Zachodniopomorskie</ion-option>
+		</ion-select>
+	</ion-item>
+
 	<ion-card class="animated fadeIn list-item" *ngFor="let provider of providers">
 		
 		<ion-item *ngIf="provider.category == 'STABLE'" color="maintone">

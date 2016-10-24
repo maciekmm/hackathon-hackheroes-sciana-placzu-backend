@@ -7,7 +7,6 @@
 <ion-content padding>
 
 	<ion-searchbar [(ngModel)]="searchValue" placeholder="Szukaj" (ionInput)="getItems($event)"></ion-searchbar>
-
 	<ion-card class="animated fadeIn" *ngIf="searchValue.length == 0">
 		<!--<ion-list-header color="#e2e212">
 			<ion-icon name='star' item-right style="color: #e2e212"></ion-icon>

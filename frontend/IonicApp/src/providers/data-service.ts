@@ -65,13 +65,17 @@ export class DataService {
 	}
 
 	searchItems: any;
-	fetchSearch(value) {
+	fetchSearch(opts) {
 		if(this.searchItems) 
 			return Promise.resolve(this.searchItems)
 
 		return new Promise(resolve => {
 			let params: URLSearchParams = new URLSearchParams();
-			params.set('name', value);
+			params.set('name', opts.name);
+			if(opts.voivodeship) {
+				params.set('voivodeship', opts.voivodeship);
+			}
+			params.set('limit', '30')
 
 			this.http.get(this.rootUrl+"search", { search: params })
 			.map(res => res.json())
