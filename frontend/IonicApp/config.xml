@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.scianaplaczu392965" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Ściana Płaczu</name>
-  <description>Aplikacja mobila Ściany Płaczu</description>
+  <description>Aplikacja mobilna Ściany Płaczu</description>
   <author email="marek@kochanow.ski" href="https://sciana.placzu.pl">Ściana Płaczu</author>
   <content src="index.html"/>
   <access origin="*"/>
