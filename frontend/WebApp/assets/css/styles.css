@@ -1,0 +1,203 @@
+html, body {
+	font-family: 'Catamaran', sans-serif;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-color: #222;
+	font-weight: 100;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+	text-decoration: none;
+}
+
+.affix {
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+.navbar-brand {
+	float: none;
+}
+
+.navbar-center {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: auto;
+	height:100%;
+}
+
+.header {
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 100%;
+	padding-top: 1em;
+    background: url(../img/background.jpg) no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.text-vertical-center {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+	color: #fff;
+	font-family: 'Dosis', sans-serif;
+}
+.text-vertical-center h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 4.5em;
+    font-weight: 100;
+}
+.subheader {
+	color: #cfcfcf;
+	font-size: 1.7em;
+}
+
+.theName, .theName:visited, .theName:link {
+	font-family: 'Courgette', cursive;
+	color: #fff;
+}
+
+.theName:hover, .theName:active {
+	color: #327979;
+	text-decoration: none;
+}
+
+.header-button, .header-button:hover {
+	text-decoration: none;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	background-color: #327979;
+	color: #ffffff;
+	font-size: 0.8em;
+	border-radius: 50px;
+	padding: 1em;
+	padding-left: 1.5em;
+	padding-right: 1.3em;
+	letter-spacing: 0.2em;
+	text-shadow: none;
+}
+.header-button:hover {
+	background-color: #bbcb44;
+}
+.panel {
+	color: #222;
+	text-shadow: none;
+	font-size: 1.5em;
+}
+.panel-footer {
+	font-size: 0.7em;
+	padding: 0.8em;
+}
+.topNavbar {
+	background-color: #fff;
+	padding: 1em;
+	height: 50px;
+	z-index: 99;
+}
+.topNavbarLink {
+	margin-left: 3em;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	color: #222;
+}
+
+.separator {
+	background-color: #327979;
+	height: 3px;
+	width: 6em;
+	margin: 0 auto;
+}
+.separatorBlack {
+	background-color: #222;
+}
+#footer {
+	background-color: #222;
+}
+
+/* SECTIONS */
+
+.sectionDefault {
+	padding-top: 3em;
+	padding-bottom: 3em;
+}
+
+.sectionHeader {
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	letter-spacing: 0.2em;
+}
+
+.sectionHeaderWhite {
+	color: #fff;
+}
+
+.sectionName {
+	background-color: #f0f0f0;
+}
+
+.sectionImageBackground {
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.sectionProjects {
+	background-color: #222;
+}
+
+.sectionDesigns {
+	background: url(../img/sectionDesignsBackground.png) no-repeat center center scroll;
+}
+
+.sectionMore {
+	background-color: #327979;
+}
+
+.sectionBody {
+	font-family: 'Catamaran', sans-serif;
+	padding-top: 2em;
+	color: #666;
+	font-size: 1.8em;
+	letter-spacing: 0.1em;
+}
+.sectionBodyWhite {
+	color: #f0f0f0;
+}
+
+footer {
+	background-color: #222;
+}
+.authorFooter {
+	padding: 1em;
+	opacity: 0.3;
+	background: #333 url(../img/footerLogo.png) no-repeat center center;
+	height: 60px;
+}
+.authorFooter:hover {
+	opacity: 0.8;
+}
+.footerLogo {
+	height: 40px;
+	margin: 0 auto;
+}
+.footerLogo:hover {
+	opacity: 1.0;
+	cursor: pointer;
+}
