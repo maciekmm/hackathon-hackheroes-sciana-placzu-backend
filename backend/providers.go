@@ -72,9 +72,9 @@ func cellEndpoint(rw http.ResponseWriter, req *http.Request) {
 	services := []*Service{}
 
 	currentTime := time.Now()
-	currentTime = currentTime.AddDate(0, 0, -currentTime.Day()+1)
+	currentTime = currentTime.AddDate(0, -1, -currentTime.Day()+1)
 
-	err := connection.Select(&services, "SELECT * FROM `services` WHERE `cell`=? AND `provider_name`=? AND `date_updated`>=DATE(?) AND `date_inserted`>=DATE(?) ORDER BY `first_available_date` DESC", cellName, providerName, currentTime.AddDate(0, -2, 0).Format("2006-01-02"), currentTime.Format("2006-01-02"))
+	err := connection.Select(&services, "SELECT * FROM `services` WHERE `cell`=? AND `provider_name`=? AND `date_updated`>=DATE(?) AND `date_inserted`>=DATE(?) ORDER BY `first_available_date` DESC", cellName, providerName, currentTime.AddDate(0, -3, 0).Format("2006-01-02"), currentTime.Format("2006-01-02"))
 	if err != nil {
 		rw.WriteHeader(500)
 		log.Println(err)
